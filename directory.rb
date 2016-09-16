@@ -1,4 +1,4 @@
-students = [ "Dr. Hannibal Lecter",                        # Students have now been placed in an array so that I can easier maintain & update the program. 
+students = [ "Dr. Hannibal Lecter",          
  "Darth Vader",
  "Nurse Ratched",
  "Michael Corleone",
@@ -10,9 +10,21 @@ students = [ "Dr. Hannibal Lecter",                        # Students have now b
  "Joffrey Baratheon",
  "Norman Bates" ]
 
-puts "The students of Villains Academy"
-puts "-------------"
-students.each do |student|                                   #  
-    puts student
-end
-print "Overall, we have #{students.count} great students."   # Here, I use string interpolation to clean my code up.
+    def print_header
+        puts "The students of Villains Academy"
+        puts "-------------"
+    end
+    
+    def print_class(names)
+      names.each do |name|                                  
+        puts name
+      end
+    end
+    
+    def print_footer(names)
+        puts "Overall, we have #{names.count} great students."
+    end
+
+print_header
+print_class(students)
+print_footer(students)
