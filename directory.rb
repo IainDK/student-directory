@@ -1,16 +1,33 @@
     def input_students
-        puts "Please enter the names of the students:\n To finish, just hit return twice.\n\n" 
-
+        puts "Welcome to the Student Directory."
+        puts "Enter the students' details when prompted."
+        puts "To exit this program, please hit return four times.\n\n"
+       
         students = []
 
+        print "Name: "
         name = gets.chomp
-    
+        print "Age: "
+        age = gets.chomp
+        print "City: "
+        city = gets.chomp
+        print "Country: "
+        country = gets.chomp
+        puts "\n"
         while !name.empty? do
     
-        students << {name: name, cohort: :Novemeber}
-        puts "We now have #{students.count} students."
-    
+        students << {name: name, age: age, city: city, country: country, cohort: :Novemeber}
+        puts "We now have #{students.count} students.\n\n"
+
+        print "Name: "
         name = gets.chomp
+        print "Age: "
+        age = gets.chomp
+        print "City: "
+        city = gets.chomp
+        print "Country: "
+        country = gets.chomp
+        puts "\n"
         end
         students
     end
@@ -21,7 +38,7 @@
     
     def print_class(students)
       students.each_with_index do |student, index|                                  
-        puts "#{index + 1}: " "#{student[:name]} (#{student[:cohort]} Cohort)"
+        puts "#{index + 1}: " "#{student[:name]} (#{student[:age]}) (#{student[:city]}) (#{student[:country]}) (#{student[:cohort]} Cohort)"
       end
     end
 
@@ -36,9 +53,9 @@
 
     def print_if_length(students)
         puts "\n"
-        puts "And, here is a list of all students whose names contain 12 characters or less:"   # This program works similarly to the one above
+        puts "And, here is a list of all students whose names contain 12 characters or less:"
         puts "\n"
-        select_students = students.select { |student| student[:name].length <= 13 }   # We use the number 13 to compensate for the space between the first and last name.
+        select_students = students.select { |student| student[:name].length <= 13 }
         select_students.each { |student| puts student[:name] }
     end
 
@@ -50,5 +67,3 @@ students = input_students
 print_header
 print_class(students)
 print_footer(students)
-print_begins_with(students)
-print_if_length(students)         # Printing the new method.
