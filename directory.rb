@@ -1,6 +1,6 @@
     def input_students
         puts "Welcome to the Student Directory."
-        puts "Enter the students' details when prompted."
+        puts "Please enter the students' details when prompted."
         puts "To exit this program, please hit return four times.\n\n"
        
         students = []
@@ -17,7 +17,11 @@
         while !name.empty? do
     
         students << {name: name, age: age, city: city, country: country, cohort: :Novemeber}
+        if students.count == 1
+        puts "We now have 1 student.\n\n"
+        elsif  
         puts "We now have #{students.count} students.\n\n"
+        end
 
         print "Name: "
         name = gets.chomp
@@ -60,9 +64,12 @@
     end
 
     def print_footer(names)
-        puts "\nOverall, we have #{names.count} great students."
+        if names.count == 1
+            puts "\n Overall, we have 1 great student."
+        elsif
+            puts "\n Overall, we have #{names.count} great students."
+        end
     end
-
 students = input_students
 print_header
 print_class(students)
