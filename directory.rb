@@ -1,35 +1,36 @@
     def input_students
-        puts "Welcome to the Student Directory."
-        puts "Please enter the students' details when prompted."
-        puts "To exit this program, please hit return four times.\n\n"
+        puts "Welcome to the Student Directory.\n".center(80)
+        puts "Please enter the students' details when prompted.".center(80)
+        puts "To exit this program, please hit return four times.\n\n".center(80)
        
         students = []
 
-        print "Name: "
+        print "Name: ".center(45)
         name = gets.chomp
-        print "Age: "
+        print "Age: ".center(45)
         age = gets.chomp
-        print "City: "
+        print "City: ".center(45)
         city = gets.chomp
-        print "Country: "
+        print "Country: ".center(45)
         country = gets.chomp
         puts "\n"
+
         while !name.empty? do
     
         students << {name: name, age: age, city: city, country: country, cohort: :Novemeber}
         if students.count == 1
-        puts "We now have 1 student.\n\n"
+        puts "We now have 1 student.\n".center(75)
         elsif  
-        puts "We now have #{students.count} students.\n\n"
+        puts "We now have #{students.count} students.\n\n".center(75)
         end
 
-        print "Name: "
+        print "Name: ".center(45)
         name = gets.chomp
-        print "Age: "
+        print "Age: ".center(45)
         age = gets.chomp
-        print "City: "
+        print "City: ".center(45)
         city = gets.chomp
-        print "Country: "
+        print "Country: ".center(45)
         country = gets.chomp
         puts "\n"
         end
@@ -37,12 +38,13 @@
     end
 
     def print_header
-        puts "The students of Villains Academy\n\n"    
+        puts "------------------------------------------------------------\n\n".center(80)
+        puts "The students of Villains Academy\n\n".center(80)
     end
     
     def print_class(students)
       students.each_with_index do |student, index|                                  
-        puts "#{index + 1}: " "#{student[:name]} (#{student[:age]}) (#{student[:city]}) (#{student[:country]}) (#{student[:cohort]} Cohort)"
+        puts "#{index + 1}: " "#{student[:name]} (#{student[:age]}) (#{student[:city]}) (#{student[:country]}) (#{student[:cohort]} Cohort)".center(80)
       end
     end
 
@@ -64,10 +66,11 @@
     end
 
     def print_footer(names)
+            puts "\n"
         if names.count == 1
-            puts "\n Overall, we have 1 great student."
+            puts "Overall, we have 1 great student.".center(80)
         elsif
-            puts "\n Overall, we have #{names.count} great students."
+            puts "Overall, we have #{names.count} great students.".center(80)
         end
     end
 students = input_students
