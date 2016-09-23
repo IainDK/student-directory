@@ -1,7 +1,7 @@
     def input_students
         puts "Welcome to the Student Directory.\n".center(80)
         puts "Please enter the students' details when prompted.".center(80)
-        puts "To exit this program, please hit return four times.\n\n".center(80)
+        puts "To exit this program, please hit return five times.\n\n".center(80)
        
         students = []
 
@@ -13,11 +13,22 @@
         city = gets.chomp
         print "Country: ".center(45)
         country = gets.chomp
+        print "Cohort: ".center(45)
+        cohort = gets.chomp
+         if !name.empty?
+          while cohort.empty?
+            puts "\n"
+            puts "The field 'Cohort' can not be blank!".center(80)
+            print "Cohort: ".center(45)
+            cohort = gets.chomp
+         break if !cohort.empty?
+          end
+         end
         puts "\n"
 
         while !name.empty? do
-    
-        students << {name: name, age: age, city: city, country: country, cohort: :Novemeber}
+        break if name.empty?
+        students << {name: name, age: age, city: city, country: country, cohort: cohort}
         if students.count == 1
         puts "We now have 1 student.\n".center(75)
         elsif  
@@ -32,6 +43,17 @@
         city = gets.chomp
         print "Country: ".center(45)
         country = gets.chomp
+        print "Cohort: ".center(45)
+        cohort = gets.chomp
+         if !name.empty?
+          while cohort.empty?
+            puts "\n"
+            puts "The field 'Cohort' can not be blank!".center(80)
+            print "Cohort: ".center(45)
+            cohort = gets.chomp
+         break if !cohort.empty?
+           end
+          end
         puts "\n"
         end
         students
