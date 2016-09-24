@@ -19,14 +19,15 @@
             puts "The field 'Cohort' can not be blank!\n".center(80)
             print "Cohort: ".center(45)
             cohort = gets.chomp
-          end
+         end
 
         students << {name: name, age: age, city: city, country: country, cohort: cohort}
+        
         print "\n"
         if students.count == 1
-        puts "We now have 1 student.\n".center(75)
+            puts "We now have 1 student.\n".center(75)
         elsif  
-        puts "We now have #{students.count} students.\n".center(75)
+            puts "We now have #{students.count} students.\n".center(75)
         end 
 
         puts "Do you want to add a new student? Please select \'Yes'\ or \'No'\:".center(75)
@@ -34,7 +35,7 @@
         new_student = gets.chomp.capitalize
         puts "\n"
         break if new_student == 'No'
-         end
+        end
         students
     end
 
