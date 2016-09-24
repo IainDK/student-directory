@@ -1,67 +1,46 @@
     def input_students
         puts "Welcome to the Student Directory.\n".center(80)
-        puts "Please enter the students' details when prompted.".center(80)
-        puts "To exit this program, please hit return five times.\n\n".center(80)
+        puts "Please enter the students' details when prompted.\n".center(80)
        
         students = []
-
-        print "Name: ".center(45)
-        name = gets.chomp
-        print "Age: ".center(45)
-        age = gets.chomp
-        print "City: ".center(45)
-        city = gets.chomp
-        print "Country: ".center(45)
-        country = gets.chomp
-        print "Cohort: ".center(45)
-        cohort = gets.chomp
-         if !name.empty?
-          while cohort.empty?
-            puts "\n"
-            puts "The field 'Cohort' can not be blank!".center(80)
+        while true do
+            print "Name: ".center(45)
+            name = gets.chomp
+            print "Age: ".center(45)
+            age = gets.chomp
+            print "City: ".center(45)
+            city = gets.chomp
+            print "Country: ".center(45)
+            country = gets.chomp
             print "Cohort: ".center(45)
             cohort = gets.chomp
-         break if !cohort.empty?
+         while cohort.empty?
+            puts "\n"
+            puts "The field 'Cohort' can not be blank!\n".center(80)
+            print "Cohort: ".center(45)
+            cohort = gets.chomp
           end
-         end
-        puts "\n"
 
-        while !name.empty? do
-        break if name.empty?
         students << {name: name, age: age, city: city, country: country, cohort: cohort}
+        print "\n"
         if students.count == 1
         puts "We now have 1 student.\n".center(75)
         elsif  
-        puts "We now have #{students.count} students.\n\n".center(75)
-        end
+        puts "We now have #{students.count} students.\n".center(75)
+        end 
 
-        print "Name: ".center(45)
-        name = gets.chomp
-        print "Age: ".center(45)
-        age = gets.chomp
-        print "City: ".center(45)
-        city = gets.chomp
-        print "Country: ".center(45)
-        country = gets.chomp
-        print "Cohort: ".center(45)
-        cohort = gets.chomp
-         if !name.empty?
-          while cohort.empty?
-            puts "\n"
-            puts "The field 'Cohort' can not be blank!".center(80)
-            print "Cohort: ".center(45)
-            cohort = gets.chomp
-         break if !cohort.empty?
-           end
-          end
+        puts "Do you want to add a new student? Please select \'Yes'\ or \'No'\:".center(75)
+        print "\n".center(75)
+        new_student = gets.chomp.capitalize
         puts "\n"
-        end
+        break if new_student == 'No'
+         end
         students
     end
 
     def print_header
         puts "------------------------------------------------------------\n\n".center(80)
-        puts "The students of Villains Academy\n\n".center(80)
+        puts "The students of Villains Academy\n".center(80)
     end
     
     def print_class(students)
