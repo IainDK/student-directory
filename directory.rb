@@ -13,12 +13,12 @@
             print "Country: ".center(45)
             country = gets.chomp
             print "Cohort: ".center(45)
-            cohort = gets.chomp
+            cohort = gets.strip                                                 # Using .strip instead of .chomp
          while cohort.empty?
             puts "\n"
             puts "The field 'Cohort' can not be blank!\n".center(80)
             print "Cohort: ".center(45)
-            cohort = gets.chomp
+            cohort = gets.strip
          end
 
         students << {name: name, age: age, city: city, country: country, cohort: cohort}
