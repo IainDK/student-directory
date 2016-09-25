@@ -23,9 +23,13 @@ def print_header
 end
 
 def print_class(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} Cohort)"
-  end
+	if students.count >= 1                                         # Added an if statement to print a message should the user not include any input.
+  	 students.each do |student|
+      puts "#{student[:name]} (#{student[:cohort]} Cohort)"
+  	end
+        else
+      	print "There are no students.\n"
+     end
 end
 
 def print_footer(names)
