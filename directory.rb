@@ -1,6 +1,6 @@
     def input_students
         puts "Welcome to the Student Directory.\n".center(80)
-        puts "Please enter the students' details when prompted.\n".center(80)
+        puts "Please enter the students' details when prompted.\n\n".center(80)
        
         students = []
         while true do
@@ -13,21 +13,20 @@
             print "Country: ".center(45)
             country = gets.chomp
             print "Cohort: ".center(45)
-            cohort = gets.strip                                                 # Using .strip instead of .chomp
+            cohort = gets.strip                                                 # Using the gets.strip method instead of gets.chomp
          while cohort.empty?
             puts "\n"
-            puts "The field 'Cohort' can not be blank!\n".center(80)
+            puts "The field 'Cohort' can not be blank!".center(80)
             print "Cohort: ".center(45)
             cohort = gets.strip
-         end
+          end
 
         students << {name: name, age: age, city: city, country: country, cohort: cohort}
-        
         print "\n"
         if students.count == 1
-            puts "We now have 1 student.\n".center(75)
+        puts "We now have 1 student.\n".center(75)
         elsif  
-            puts "We now have #{students.count} students.\n".center(75)
+        puts "We now have #{students.count} students.\n".center(75)
         end 
 
         puts "Do you want to add a new student? Please select \'Yes'\ or \'No'\:".center(75)
@@ -35,20 +34,36 @@
         new_student = gets.chomp.capitalize
         puts "\n"
         break if new_student == 'No'
-        end
+         end
         students
     end
 
     def print_header
-        puts "------------------------------------------------------------\n\n".center(80)
-        puts "The students of Villains Academy\n".center(80)
+        puts "------------------------------------------------------------\n".center(80)
+        puts "The Students of Villains Academy\n\n".center(80)
     end
     
     def print_class(students)
+        if students.count >= 1 
       students.each_with_index do |student, index|                                  
         puts "#{index + 1}: " "#{student[:name]} (#{student[:age]}) (#{student[:city]}) (#{student[:country]}) (#{student[:cohort]} Cohort)".center(80)
+        end
       end
     end
+
+    def print_by_cohort(students)
+    puts "\n"
+   puts "Which cohort would you like to view?".center(80)
+
+   print "Cohort: ".center(50)
+   requested_cohort = gets.chomp
+   print "\n"
+    students.each_with_index do |student|
+     if student[:cohort] == requested_cohort
+         puts "#{student[:name]} (#{student[:cohort]} Cohort)".center(80)
+     end
+    end
+  end
 
     def print_begins_with(students)
   puts "\n"
@@ -79,3 +94,4 @@ students = input_students
 print_header
 print_class(students)
 print_footer(students)
+print_by_cohort(students)
